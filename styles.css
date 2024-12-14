@@ -2040,6 +2040,62 @@ html {
   .w-dyn-hide, .w-dyn-bind-empty, .w-condition-invisible {
     display: none !important;
   }
+
+  .flex-floor {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 16px; 
+    justify-content: center; 
+  }
+
+  .w-dyn-items-floor {
+      display: flex;
+      flex-wrap: wrap; 
+      gap: 16px; 
+  }
+
+  .w-dyn-item-floor {
+      flex: 1 1 calc(50% - 16px); 
+      max-width: calc(50% - 16px);
+      box-sizing: border-box;
+  }
+  
+  .floor-image {
+    border-radius: 45px;
+    width: 100%;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    cursor: crosshair;
+  }
+
+  .floor-image img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.4s ease; /* Optional: Smooth zoom transition */
+    cursor: zoom-in; /* Indicate that the image can be zoomed */
+  }
+  
+  .floor-image:hover img {
+    cursor: zoom-out; /* Change cursor when zoomed in */
+  }
+ 
+  /* .floor-image img {
+    display: block; 
+    width: 100%; 
+    height: auto;
+    transition: transform 0.6s ease; 
+  }
+
+  .floor-image:hover img {
+    transform: scale(2);
+  } */
+
+  .intro-text-box-floor {
+    margin-top: 10px;
+    text-align: center;
+  }
+
   
   .wf-layout-layout {
     display: grid;
@@ -2711,7 +2767,7 @@ html {
   .hero-text-box {
     z-index: 1;
     width: 80%;
-    margin-bottom: 7rem;
+    margin-bottom: 9rem;
     position: relative;
   }
   
@@ -2726,9 +2782,9 @@ html {
   
   .hero-image-scale.home {
     background-image: url("ver2.jpg");
-    background-position: 50%;
+    background-position: 50% 1%;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
   }
   
   .hero-image-scale.about-us {
@@ -2861,7 +2917,7 @@ html {
     justify-content: center;
     align-items: center;
     height: 62px;
-    padding-top: 16px;
+    padding-top: 8px;
     transition: transform .2s, opacity .2s;
     position: relative;
   }
@@ -6448,11 +6504,12 @@ html {
     text-decoration: none;
     transition: transform .2s;
     display: inline-block;
+    margin-top: 50px;
   }
   
-  .cabin-category-link:hover {
+  /* .cabin-category-link:hover {
     transform: scale(1.05);
-  }
+  } */
   
   .h1 {
     font-size: 50px;
