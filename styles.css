@@ -2376,6 +2376,19 @@ html {
     top: -3.125rem;
   }
 
+  .content-section-map {
+    z-index: 1;
+    background-color: var(--white);
+    color: var(--font);
+    width: 100%;
+    max-width: 1290px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: -3.125rem;
+    padding-bottom: 100px;
+  }
+
   .content-section-faq {
     z-index: 1;
     background-color: var(--white);
@@ -2386,6 +2399,7 @@ html {
     margin-right: auto;
     position: relative;
     top: -3.125rem;
+    padding-bottom: 100px;
   }
   
   .content-section.intro {
@@ -2758,7 +2772,7 @@ html {
   }
   
   .dark-on-scroll {
-    background-color: var(--bg-dark);
+    /* background-color: var(--bg-dark); */
     opacity: 0;
     position: absolute;
     inset: 0%;
@@ -4567,7 +4581,7 @@ html {
   }
   
   .parrallax-image.contact-us {
-    background-image: url("https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00096_clay-banks-6LSKem6Fkt4-unsplash.jpg");
+    background-image: url("verNight.jpg");
   }
   
   .parrallax-image.video-player {
@@ -6930,7 +6944,7 @@ html {
   .first-word {
     transform-style: preserve-3d;
     flex: 1;
-    height: 180px;
+    height: 300px;
     display: flex;
     position: relative;
     transform: rotateX(180deg)rotateY(0)rotateZ(0);
@@ -9589,6 +9603,7 @@ html {
     .upside-donw-arrow {
       width: 23px;
     }
+  
   }
   
   @font-face {

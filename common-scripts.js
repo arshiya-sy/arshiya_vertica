@@ -36,7 +36,7 @@ class ImageZoom {
       image.style.transform = 'scale(1)';
       image.style.transformOrigin = 'center center'; 
     }
-  }
+}
   
   document.addEventListener('DOMContentLoaded', () => {
     new ImageZoom('.floor-image', 5);

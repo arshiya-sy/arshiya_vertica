@@ -7,11 +7,12 @@
     <meta charset="utf-8" />
     <title>Cabin CMS - Webflow HTML website template</title>
     <meta
-        content="Cabin CMS is a modern and sleek Webflow template designed specifically for short-term rental properties. Whether you&#x27;re managing vacation homes, Airbnb listings, or cozy cabins, this template offers a hassle-free solution to showcase your property in style."
+        content="vertica"
         name="description" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Webflow" name="generator" />
     <link href="styles.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <style>
         @media (min-width:992px) {
             html.w-mod-js:not(.w-mod-ix) [data-w-id="de2d97e5-33ac-484d-8678-6af7fc6e5e9a"] {
@@ -125,6 +126,80 @@
             html.w-mod-js:not(.w-mod-ix) [data-w-id="c7b32c82-aa43-1539-9bd6-b93e9a1b08a7"] {
                 opacity: 0;
             }
+        }
+        .proximity-section {
+            display: flex; /* Enables flexbox */
+            gap: 130px; /* Adds spacing between the buttons and the map */
+            padding-left: 40px;
+            align-items: flex-start; /* Aligns items to the top of the container */
+            padding-bottom: 150px;
+            padding-top: 100px;
+        }
+
+        .map-container {
+            height: 500px;
+            width: 700px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 50px;
+        }
+
+        .proximity-buttons {
+            display: flex; 
+            flex-direction: column; 
+            gap: 20px; 
+        }
+
+        .proximity-buttons button {
+            padding: 10px 20px;
+            color: rgb(0, 0, 0); /* Text color */
+            border: 1px solid #000; /* Border color and width */
+            border-radius: 30px;
+            cursor: pointer;
+            width: 280px; /* Consistent button width */
+            height: 60px;
+            text-align: center;
+            background-color: transparent; /* No background color */
+            text-align: left;
+        }
+
+
+        .proximity-buttons button:hover {
+            background-color: #000000;
+            color: rgb(255, 255, 255);
+        }
+
+        .neighbourhood-label {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* Basic styles for image container */
+        .image-container {
+            position: relative;
+            width: 300px;
+            height: 200px;
+        }
+
+        /* Styling for pagination dots */
+        .pagination-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .dot {
+            width: 15px;
+            height: 15px;
+            margin: 0 5px;
+            border-radius: 50%;
+            background-color: #ccc;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background-color: #333;
         }
     </style>
     <script
@@ -510,76 +585,7 @@
                 </div>
             </div>
         </div>
-        <div id="Amazing" class="content-section">
-            <div class="content-wrapper w-container">
-                <div class="heading-medium">
-                    <div>
-                        <div class="title">Amazing</div>
-                    </div>
-                    <div>
-                        <h4 class="h4-big">Enhace your Life</h4>
-                    </div>
-                    <div class="max-469-pixels">
-                        <div class="subtitle">Redefine urban living at Bhandary Vertica, South India's tallest residential tower with unmatched luxury.</div>
-                    </div>
-                </div>
-                <div class="flex-row">
-                    <div data-w-id="1faadb56-9498-14c2-e1a1-b3f0463d0b0b" style="opacity:0" class="image-column"><img
-                            src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00042_Bg-Row-1.jpg"
-                            loading="lazy" width="291.5"
-                            sizes="(max-width: 479px) 100vw, (max-width: 767px) 41vw, 291.5px" alt=""
-                            srcset="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00042_Bg-Row-1-p-500.jpg 500w, https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00042_Bg-Row-1.jpg 583w" />
-                        <div class="parallax-image _2"></div>
-                        <div style="opacity:0" class="corner-icon _1">
-                        </div>
-                    </div>
-                    <div class="text-column mobile-margin">
-                        <div data-w-id="5aa2c490-480e-3c67-0d6f-3013fe4c1a9f" style="opacity:0" class="max-500-pixels">
-                            <h5 class="h5 no-top-margin">Relax</h5>
-                            <div class="subtitle-box">
-                                <div class="subtitle indent-and-margin">Redefine luxury living at Bhandary Vertica with modern 4BHK apartments and duplexes, crafted for elegance and comfort.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex-row last">
-                    <div class="text-column mobile-margin">
-                        <div data-w-id="d6162f21-c9de-21c1-53cf-841f3dc3dce1" style="opacity:0" class="max-500-pixels">
-                            <h5 class="h5 no-top-margin">Experience Serenity</h5>
-                            <div class="subtitle-box">
-                                <div class="subtitle indent-and-margin">Immerse yourself in thoughtfully designed spaces complemented by world-class amenities and panoramic views.</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div data-w-id="d6162f21-c9de-21c1-53cf-841f3dc3dcdc" style="opacity:0" class="image-column"><img
-                            src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00042_Bg-Row-1.jpg"
-                            loading="lazy" width="291.5" sizes="(max-width: 479px) 100vw, 291.5px" alt=""
-                            srcset="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00042_Bg-Row-1-p-500.jpg 500w, https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00042_Bg-Row-1.jpg 583w" />
-                        <div class="parallax-image _13"></div>
-                        <div style="opacity:0" class="corner-icon _2">
-                        </div>
-                    </div>
-                </div>
-                <div class="flex-row" style="display: flex; align-items: center; justify-content: space-between; margin-top: 70px;">
-                    <div data-w-id="1faadb56-9498-14c2-e1a1-b3f0463d0b0b" class="image-column">
-                        <img src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00042_Bg-Row-1.jpg"
-                            loading="lazy" width="291.5"
-                            sizes="(max-width: 479px) 100vw, (max-width: 767px) 41vw, 291.5px" alt=""
-                            srcset="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00042_Bg-Row-1-p-500.jpg 500w, https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00042_Bg-Row-1.jpg 583w" />
-                        <div class="parallax-image _22"></div>
-                        <!-- <div class="corner-icon _1"></div> -->
-                    </div>
-                    <div class="text-column mobile-margin">
-                        <div class="max-500-pixels">
-                            <h5 class="h5 no-top-margin">Unmatched Convenience</h5>
-                            <div class="subtitle-box">
-                                <div class="subtitle indent-and-margin">Situated in the heart of Mangaluru, enjoy seamless access to key destinations while living in unparalleled sophistication.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
         <div id="Expand" class="content-section">
             <div class="content-wrapper w-container">
                 <div  style="top: -50px;" class="heading-large">
@@ -638,173 +644,7 @@
                         <!-- <div class="expand-icon-3"></div> -->
                     </div>
                 </div>
-                <!-- <div data-w-id="3d910288-a21c-6a28-1f35-0671bc8e4492" class="numbers">
-                    <div class="divider-line top"></div>
-                    <div class="divider-line landscape-none"></div>
-                    <div class="flex-numbers">
-                        <div data-w-id="3d910288-a21c-6a28-1f35-0671bc8e4496" style="opacity:0" class="numbers-block">
-                            <div class="numbers-text-block">
-                                <div class="counter-container">
-                                    <div class="relative">
-                                        <div data-w-id="3d910288-a21c-6a28-1f35-0671bc8e449c" class="counter-1 big">
-                                            <div class="digits big">
-                                                <div class="counter-numbers left big">
-                                                    <div class="tb-digit big">0</div>
-                                                    <div class="tb-digit big">1</div>
-                                                    <div class="tb-digit big">2</div>
-                                                    <div class="tb-digit big">3</div>
-                                                    <div class="tb-digit big">4</div>
-                                                    <div class="tb-digit big">5</div>
-                                                    <div class="tb-digit big">6</div>
-                                                    <div class="tb-digit big">7</div>
-                                                    <div class="tb-digit big">8</div>
-                                                    <div class="tb-digit big">9</div>
-                                                </div>
-                                                <div class="counter-numbers right big">
-                                                    <div class="tb-digit big">0</div>
-                                                    <div class="tb-digit big">1</div>
-                                                    <div class="tb-digit big">2</div>
-                                                    <div class="tb-digit big">3</div>
-                                                    <div class="tb-digit big">4</div>
-                                                    <div class="tb-digit big">5</div>
-                                                    <div class="tb-digit big">6</div>
-                                                    <div class="tb-digit big">7</div>
-                                                    <div class="tb-digit big">8</div>
-                                                    <div class="tb-digit big">9</div>
-                                                </div>
-                                                <div class="counter-numbers last big">
-                                                    <div class="tb-digit big">0</div>
-                                                    <div class="tb-digit big">1</div>
-                                                    <div class="tb-digit big">2</div>
-                                                    <div class="tb-digit big">3</div>
-                                                    <div class="tb-digit big">4</div>
-                                                    <div class="tb-digit big">5</div>
-                                                    <div class="tb-digit big">6</div>
-                                                    <div class="tb-digit big">7</div>
-                                                    <div class="tb-digit big">8</div>
-                                                    <div class="tb-digit big">9</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="sign-big">M</div>
-                                </div>
-                                <div>
-                                    <div class="title-box">
-                                        <div class="title-medium">Friendly Host</div>
-                                    </div>
-                                    <div class="paragraph-box">
-                                        <p>Are you in the short-term rental market? Look no further than <strong>Cabin
-                                                CMS Webflow Template</strong></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div data-w-id="3d910288-a21c-6a28-1f35-0671bc8e44e5" style="opacity:0" class="numbers-block">
-                            <div class="numbers-text-block">
-                                <div class="counter-container no-margin">
-                                    <div class="relative">
-                                        <div class="tag-number">120%</div>
-                                        <div data-w-id="3d910288-a21c-6a28-1f35-0671bc8e44eb" class="counter-1 big">
-                                            <div class="digits big">
-                                                <div class="counter-numbers left big">
-                                                    <div class="tb-digit big">0</div>
-                                                    <div class="tb-digit big">1</div>
-                                                    <div class="tb-digit big">2</div>
-                                                    <div class="tb-digit big">3</div>
-                                                    <div class="tb-digit big">4</div>
-                                                    <div class="tb-digit big">5</div>
-                                                    <div class="tb-digit big">6</div>
-                                                    <div class="tb-digit big">7</div>
-                                                    <div class="tb-digit big">8</div>
-                                                    <div class="tb-digit big">9</div>
-                                                </div>
-                                                <div class="counter-numbers right big">
-                                                    <div class="tb-digit big">0</div>
-                                                    <div class="tb-digit big">1</div>
-                                                    <div class="tb-digit big">2</div>
-                                                    <div class="tb-digit big">3</div>
-                                                    <div class="tb-digit big">4</div>
-                                                    <div class="tb-digit big">5</div>
-                                                    <div class="tb-digit big">6</div>
-                                                    <div class="tb-digit big">7</div>
-                                                    <div class="tb-digit big">8</div>
-                                                    <div class="tb-digit big">9</div>
-                                                </div>
-                                                <div class="counter-numbers last big">
-                                                    <div class="tb-digit big">0</div>
-                                                    <div class="tb-digit big">1</div>
-                                                    <div class="tb-digit big">2</div>
-                                                    <div class="tb-digit big">3</div>
-                                                    <div class="tb-digit big">4</div>
-                                                    <div class="tb-digit big">5</div>
-                                                    <div class="tb-digit big">6</div>
-                                                    <div class="tb-digit big">7</div>
-                                                    <div class="tb-digit big">8</div>
-                                                    <div class="tb-digit big">9</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="sign-big">M</div>
-                                </div>
-                                <div class="title-box">
-                                    <div class="title-medium">Gross Revenue</div>
-                                </div>
-                                <div class="paragraph-box">
-                                    <p>A modern and user-friendly Webflow template designed for property managers</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div data-w-id="3d910288-a21c-6a28-1f35-0671bc8e4534" style="opacity:0"
-                            class="numbers-block last">
-                            <div class="numbers-text-block">
-                                <div class="counter-container no-margin">
-                                    <div class="relative">
-                                        <div data-w-id="3d910288-a21c-6a28-1f35-0671bc8e453a" class="counter-1 big">
-                                            <div class="digits big">
-                                                <div class="plus">+</div>
-                                                <div class="counter-numbers right big">
-                                                    <div class="tb-digit big">0</div>
-                                                    <div class="tb-digit big">1</div>
-                                                    <div class="tb-digit big">2</div>
-                                                    <div class="tb-digit big">3</div>
-                                                    <div class="tb-digit big">4</div>
-                                                    <div class="tb-digit big">5</div>
-                                                    <div class="tb-digit big">6</div>
-                                                    <div class="tb-digit big">7</div>
-                                                    <div class="tb-digit big">8</div>
-                                                    <div class="tb-digit big">9</div>
-                                                </div>
-                                                <div class="counter-numbers last big">
-                                                    <div class="tb-digit big">0</div>
-                                                    <div class="tb-digit big">1</div>
-                                                    <div class="tb-digit big">2</div>
-                                                    <div class="tb-digit big">3</div>
-                                                    <div class="tb-digit big">4</div>
-                                                    <div class="tb-digit big">5</div>
-                                                    <div class="tb-digit big">6</div>
-                                                    <div class="tb-digit big">7</div>
-                                                    <div class="tb-digit big">8</div>
-                                                    <div class="tb-digit big">9</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="sign-big">%</div>
-                                </div>
-                                <div class="title-box">
-                                    <div class="title-medium">Friendly Host</div>
-                                </div>
-                                <div class="paragraph-box">
-                                    <p>Whether you&#x27;re managing a cozy cabin or beachfront home
-                                        <strong>Cabin</strong> is for you</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
+
         </div>
         <div id="Cabins" data-w-id="31d42041-e2c8-66b5-3f5a-ca8233c90dc3" class="content-section works">
             <!-- <div class="lines-bg"></div> -->
@@ -819,21 +659,19 @@
                     <div data-w-id="ff4d764b-6bc6-9eef-d501-2dac317fcd59" style="opacity:0" class="w-dyn-list">
                         <div role="list" class="w-dyn-items">
                             <div role="listitem" class="collection-item w-dyn-item"><a
-                                    data-w-id="89010745-0f79-a737-0c87-7cfbd3fee3d7"
-                                    href="/cabins/wonderful-apartment-view-lake-woodlands-waterway"
                                     class="work-preview-image max-height w-inline-block"><img
                                         sizes="(max-width: 479px) 100vw, (max-width: 767px) 88vw, (max-width: 991px) 87vw, 731px"
                                         srcset="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00050_Blog_bg-p-500.jpg 500w, https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00050_Blog_bg.jpg 731w"
                                         alt=""
                                         src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00050_Blog_bg.jpg"
                                         loading="lazy" />
-                                    <div data-w-id="f7f4a6c8-c326-3685-3d84-f761c916bd8c"
+                                    <div
                                         style="background-image:url('verNight.jpg')"
                                         class="parallax-image works">
                                         <div style="display:none;opacity:0" class="item-hover-overlay"></div>
-                                        <div style="opacity:0" class="blur-hover-overlay"></div>
-                                        <div style="-webkit-transform:translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
-                                            class="button-hover">View <br />Work</div>
+                                        <!-- <div style="opacity:0" class="blur-hover-overlay"></div> -->
+                                        <!-- <div style="-webkit-transform:translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
+                                            class="button-hover">View <br />Work</div> -->
                                     </div>
                                 </a>
                                 <div class="preview-large-box">
@@ -846,7 +684,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="flex-floor">
+                    <!-- <div class="flex-floor">
                         <div class="collection w-dyn-list">
                             <div role="list" class="flex w-dyn-items-floor">
                                 <div role="listitem" class="w-dyn-item-floor">
@@ -899,409 +737,67 @@
                                 </div>
                             </div>
                         </div>
-                    </div>                              
+                    </div>                               -->
+                    <div class="image-section">
+                        <div>
+                            <div id="image1" role="listitem" class="w-dyn-item-floor">
+                                <a class="floor-image w-inline-block">
+                                    <img src="floor1.jpg" alt="Description of floor1" />
+                                </a>
+                                <div class="intro-text-box-floor">
+                                    DUPLEX LOWER ISO
+                                </div>
+                            </div>
+                            <div id="image2" role="listitem" class="w-dyn-item-floor">
+                                <a class="floor-image w-inline-block">
+                                    <img src="floor3.jpg" alt="Description of floor3" />
+                                </a>
+                                <div class="intro-text-box-floor">
+                                    DUPLEX UPPER ISO
+                                </div>
+                            </div>
+                            <div id="image3" role="listitem" class="w-dyn-item-floor">
+                                <a class="floor-image w-inline-block">
+                                    <img src="floor5.jpg" alt="Description of floor5" />
+                                </a>
+                                <div class="intro-text-box-floor">
+                                    TYPICAL ISO
+                                </div>
+                            </div>
+                        </div>
+                      
+                        <div class="pagination-dots">
+                          <span class="dot" onclick="showImage(1)"></span>
+                          <span class="dot" onclick="showImage(2)"></span>
+                          <span class="dot" onclick="showImage(3)"></span>
+                        </div>
+                    </div>                   
                 </div>
             </div>
         </div>
-        <!-- <div class="content-section pricing">
-            <div class="dark-bg">
-                <div class="radial-container">
-                    <div class="circle-big"></div>
-                    <div class="circle-medium"></div>
-                    <div class="circle-micro"></div>
-                    <div class="circle-small"></div>
+        <div style="padding-left: 30px; ">
+            <div class="max-500-pixels"></div>
+                <h5 class="h5 no-top-margin">Where Luxury Meets Convenience</h5>
+                <div class="subtitle-box">
+                    <div class="subtitle indent">Ideally located near key tech hubs, educational institutions, and healthcare, offering a serene lifestyle amidst the city’s vibrant energy.</div>
                 </div>
-                <div class="content-wrapper w-container">
-                    <div class="heading-large-center">
-                        <div>
-                            <div class="title white">Pricing</div>
-                        </div>
-                        <div>
-                            <h4 class="h4-big white">Choose your Plan</h4>
-                        </div>
-                        <div class="max-469-pixels">
-                            <div class="subtitle white">Choose one of our simple pricing plans.</div>
-                        </div>
-                    </div>
-                    <div class="flex-pricing">
-                        <div data-w-id="88471a7f-f009-e2d5-693e-3f9d42e914c4" class="pricing-box">
-                            <div class="pricing-heading">
-                                <div class="pricing-heading">
-                                    <div class="pricing-title">Basic</div>
-                                    <div>
-                                        <div class="dolar-sign">$</div>
-                                        <div class="price">499</div>
-                                    </div>
-                                    <div>
-                                        <p>Get a custom-built website tailored to showcase your rental cabins.</p>
-                                    </div>
-                                </div>
-                                <div class="list">
-                                    <div data-w-id="88471a7f-f009-e2d5-693e-3f9d42e914d2" class="accordion-wrapper"><a
-                                            href="#" data-w-id="88471a7f-f009-e2d5-693e-3f9d42e914d3"
-                                            class="accordion-item-trigger w-inline-block">
-                                            <div class="full-width-item">
-                                                <div class="flex-no-wrap">
-                                                    <div class="pricing-expand">
-                                                        <div class="pricing-icon"></div>
-                                                        <p class="pricing-detail-item">Book a cozy rental cabin</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="open-close"><img width="256" loading="lazy" alt=""
-                                                    src="https://cdn.prod.website-files.com/63238e717124a8c9a4c94e41/632646648894df17d8cc6f1d_arrow-pointing-to-right.svg"
-                                                    class="faq-arrow" /></div>
-                                        </a>
-                                        <div class="accordion-item-content">
-                                            <p class="pricing-overview">Nam libero tempore cume soluta nobis est
-                                                eligendi.</p>
-                                        </div>
-                                        <div class="divider-line"></div>
-                                    </div>
-                                    <div data-w-id="88471a7f-f009-e2d5-693e-3f9d42e914e0" class="accordion-wrapper"><a
-                                            href="#" data-w-id="88471a7f-f009-e2d5-693e-3f9d42e914e1"
-                                            class="accordion-item-trigger w-inline-block">
-                                            <div class="full-width-item">
-                                                <div class="flex-no-wrap">
-                                                    <div class="pricing-expand">
-                                                        <div class="pricing-icon"></div>
-                                                        <p class="pricing-detail-item">All amenities included</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="open-close"><img width="256" loading="lazy" alt=""
-                                                    src="https://cdn.prod.website-files.com/63238e717124a8c9a4c94e41/632646648894df17d8cc6f1d_arrow-pointing-to-right.svg"
-                                                    class="faq-arrow" /></div>
-                                        </a>
-                                        <div class="accordion-item-content">
-                                            <p class="pricing-overview">Nam libero tempore cume soluta nobis est
-                                                eligendi.</p>
-                                        </div>
-                                        <div class="divider-line"></div>
-                                    </div>
-                                    <div data-w-id="88471a7f-f009-e2d5-693e-3f9d42e914ee" class="accordion-wrapper"><a
-                                            href="#" data-w-id="88471a7f-f009-e2d5-693e-3f9d42e914ef"
-                                            class="accordion-item-trigger w-inline-block">
-                                            <div class="full-width-item">
-                                                <div class="flex-no-wrap">
-                                                    <div class="pricing-expand">
-                                                        <div class="pricing-icon"></div>
-                                                        <p class="pricing-detail-item">Satisfaction Guarantee!</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="open-close"><img width="256" loading="lazy" alt=""
-                                                    src="https://cdn.prod.website-files.com/63238e717124a8c9a4c94e41/632646648894df17d8cc6f1d_arrow-pointing-to-right.svg"
-                                                    class="faq-arrow" /></div>
-                                        </a>
-                                        <div class="accordion-item-content">
-                                            <p class="pricing-overview">Nam libero tempore cume soluta nobis est
-                                                eligendi.</p>
-                                        </div>
-                                        <div class="divider-line"></div>
-                                    </div>
-                                    <div data-w-id="88471a7f-f009-e2d5-693e-3f9d42e914fc" class="accordion-wrapper"><a
-                                            href="#" data-w-id="88471a7f-f009-e2d5-693e-3f9d42e914fd"
-                                            class="accordion-item-trigger w-inline-block">
-                                            <div class="full-width-item">
-                                                <div class="flex-no-wrap">
-                                                    <div class="pricing-expand">
-                                                        <div class="pricing-icon"></div>
-                                                        <p class="pricing-detail-item">Friendly support 24/7</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="open-close"><img width="256" loading="lazy" alt=""
-                                                    src="https://cdn.prod.website-files.com/63238e717124a8c9a4c94e41/632646648894df17d8cc6f1d_arrow-pointing-to-right.svg"
-                                                    class="faq-arrow" /></div>
-                                        </a>
-                                        <div class="accordion-item-content">
-                                            <p class="pricing-overview">Nam libero tempore cume soluta nobis est
-                                                eligendi.</p>
-                                        </div>
-                                        <div class="divider-line"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pricing-button-box"><a href="/contact-us"
-                                    class="button-pricing-outline w-button">Get This Plan!</a></div>
-                        </div>
-                        <div data-w-id="88471a7f-f009-e2d5-693e-3f9d42e9150d" class="pricing-box dark">
-                            <div class="pricing-heading">
-                                <div class="pricing-heading">
-                                    <div class="pricing-title white">Pro</div>
-                                    <div>
-                                        <div class="dolar-sign white">$</div>
-                                        <div class="price white">999</div>
-                                    </div>
-                                    <div>
-                                        <p class="text-white">Get a custom-built website tailored to showcase your
-                                            rental cabins.</p>
-                                    </div>
-                                </div>
-                                <div class="list">
-                                    <div data-w-id="88471a7f-f009-e2d5-693e-3f9d42e9151b" class="accordion-wrapper"><a
-                                            href="#" data-w-id="88471a7f-f009-e2d5-693e-3f9d42e9151c"
-                                            class="accordion-item-trigger w-inline-block">
-                                            <div class="full-width-item">
-                                                <div class="flex-no-wrap">
-                                                    <div class="pricing-expand">
-                                                        <div class="pricing-icon white"></div>
-                                                        <p class="pricing-detail-item white">Book a cozy rental cabin
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="open-close"><img width="256" loading="lazy" alt=""
-                                                    src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c0005e_Arrow_w.png"
-                                                    class="faq-arrow" /></div>
-                                        </a>
-                                        <div class="accordion-item-content">
-                                            <p class="pricing-overview white">Nam libero tempore cume soluta nobis est
-                                                eligendi.</p>
-                                        </div>
-                                        <div class="divider-line"></div>
-                                    </div>
-                                    <div data-w-id="88471a7f-f009-e2d5-693e-3f9d42e91529" class="accordion-wrapper"><a
-                                            href="#" data-w-id="88471a7f-f009-e2d5-693e-3f9d42e9152a"
-                                            class="accordion-item-trigger w-inline-block">
-                                            <div class="full-width-item">
-                                                <div class="flex-no-wrap">
-                                                    <div class="pricing-expand">
-                                                        <div class="pricing-icon white"></div>
-                                                        <p class="pricing-detail-item white">All amenities included</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="open-close"><img width="256" loading="lazy" alt=""
-                                                    src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c0005e_Arrow_w.png"
-                                                    class="faq-arrow" /></div>
-                                        </a>
-                                        <div class="accordion-item-content">
-                                            <p class="pricing-overview white">Nam libero tempore cume soluta nobis est
-                                                eligendi.</p>
-                                        </div>
-                                        <div class="divider-line"></div>
-                                    </div>
-                                    <div data-w-id="88471a7f-f009-e2d5-693e-3f9d42e91537" class="accordion-wrapper"><a
-                                            href="#" data-w-id="88471a7f-f009-e2d5-693e-3f9d42e91538"
-                                            class="accordion-item-trigger w-inline-block">
-                                            <div class="full-width-item">
-                                                <div class="flex-no-wrap">
-                                                    <div class="pricing-expand">
-                                                        <div class="pricing-icon white"></div>
-                                                        <p class="pricing-detail-item white">Satisfaction Guarantee!</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="open-close"><img width="256" loading="lazy" alt=""
-                                                    src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c0005e_Arrow_w.png"
-                                                    class="faq-arrow" /></div>
-                                        </a>
-                                        <div class="accordion-item-content">
-                                            <p class="pricing-overview white">Nam libero tempore cume soluta nobis est
-                                                eligendi.</p>
-                                        </div>
-                                        <div class="divider-line"></div>
-                                    </div>
-                                    <div data-w-id="88471a7f-f009-e2d5-693e-3f9d42e91545" class="accordion-wrapper"><a
-                                            href="#" data-w-id="88471a7f-f009-e2d5-693e-3f9d42e91546"
-                                            class="accordion-item-trigger w-inline-block">
-                                            <div class="full-width-item">
-                                                <div class="flex-no-wrap">
-                                                    <div class="pricing-expand">
-                                                        <div class="pricing-icon white"></div>
-                                                        <p class="pricing-detail-item white">Friendly support 24/7</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="open-close"><img width="256" loading="lazy" alt=""
-                                                    src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c0005e_Arrow_w.png"
-                                                    class="faq-arrow" /></div>
-                                        </a>
-                                        <div class="accordion-item-content">
-                                            <p class="pricing-overview white">Nam libero tempore cume soluta nobis est
-                                                eligendi.</p>
-                                        </div>
-                                        <div class="divider-line"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pricing-button-box"><a href="/contact-us"
-                                    class="button-pricing-outline white w-button">14 Days Trial!</a></div>
-                            <div class="badge-text">Popular!</div>
-                        </div>
-                        <div data-w-id="88471a7f-f009-e2d5-693e-3f9d42e91558" class="pricing-box last">
-                            <div class="pricing-heading">
-                                <div class="pricing-heading">
-                                    <div class="pricing-title">Basic</div>
-                                    <div>
-                                        <div class="dolar-sign">$</div>
-                                        <div class="price">1499</div>
-                                    </div>
-                                    <div>
-                                        <p>Get a custom-built website tailored to showcase your rental cabins.</p>
-                                    </div>
-                                </div>
-                                <div class="list">
-                                    <div data-w-id="88471a7f-f009-e2d5-693e-3f9d42e91566" class="accordion-wrapper"><a
-                                            href="#" data-w-id="88471a7f-f009-e2d5-693e-3f9d42e91567"
-                                            class="accordion-item-trigger w-inline-block">
-                                            <div class="full-width-item">
-                                                <div class="flex-no-wrap">
-                                                    <div class="pricing-expand">
-                                                        <div class="pricing-icon"></div>
-                                                        <p class="pricing-detail-item">Book a cozy rental cabin</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="open-close"><img width="256" loading="lazy" alt=""
-                                                    src="https://cdn.prod.website-files.com/63238e717124a8c9a4c94e41/632646648894df17d8cc6f1d_arrow-pointing-to-right.svg"
-                                                    class="faq-arrow" /></div>
-                                        </a>
-                                        <div class="accordion-item-content">
-                                            <p class="pricing-overview">Nam libero tempore cume soluta nobis est
-                                                eligendi.</p>
-                                        </div>
-                                        <div class="divider-line"></div>
-                                    </div>
-                                    <div data-w-id="88471a7f-f009-e2d5-693e-3f9d42e91574" class="accordion-wrapper"><a
-                                            href="#" data-w-id="88471a7f-f009-e2d5-693e-3f9d42e91575"
-                                            class="accordion-item-trigger w-inline-block">
-                                            <div class="full-width-item">
-                                                <div class="flex-no-wrap">
-                                                    <div class="pricing-expand">
-                                                        <div class="pricing-icon"></div>
-                                                        <p class="pricing-detail-item">All amenities included</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="open-close"><img width="256" loading="lazy" alt=""
-                                                    src="https://cdn.prod.website-files.com/63238e717124a8c9a4c94e41/632646648894df17d8cc6f1d_arrow-pointing-to-right.svg"
-                                                    class="faq-arrow" /></div>
-                                        </a>
-                                        <div class="accordion-item-content">
-                                            <p class="pricing-overview">Nam libero tempore cume soluta nobis est
-                                                eligendi.</p>
-                                        </div>
-                                        <div class="divider-line"></div>
-                                    </div>
-                                    <div data-w-id="88471a7f-f009-e2d5-693e-3f9d42e91582" class="accordion-wrapper"><a
-                                            href="#" data-w-id="88471a7f-f009-e2d5-693e-3f9d42e91583"
-                                            class="accordion-item-trigger w-inline-block">
-                                            <div class="full-width-item">
-                                                <div class="flex-no-wrap">
-                                                    <div class="pricing-expand">
-                                                        <div class="pricing-icon"></div>
-                                                        <p class="pricing-detail-item">Satisfaction Guarantee!</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="open-close"><img width="256" loading="lazy" alt=""
-                                                    src="https://cdn.prod.website-files.com/63238e717124a8c9a4c94e41/632646648894df17d8cc6f1d_arrow-pointing-to-right.svg"
-                                                    class="faq-arrow" /></div>
-                                        </a>
-                                        <div class="accordion-item-content">
-                                            <p class="pricing-overview">Nam libero tempore cume soluta nobis est
-                                                eligendi.</p>
-                                        </div>
-                                        <div class="divider-line"></div>
-                                    </div>
-                                    <div data-w-id="88471a7f-f009-e2d5-693e-3f9d42e91590" class="accordion-wrapper"><a
-                                            href="#" data-w-id="88471a7f-f009-e2d5-693e-3f9d42e91591"
-                                            class="accordion-item-trigger w-inline-block">
-                                            <div class="full-width-item">
-                                                <div class="flex-no-wrap">
-                                                    <div class="pricing-expand">
-                                                        <div class="pricing-icon"></div>
-                                                        <p class="pricing-detail-item">Friendly support 24/7</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="open-close"><img width="256" loading="lazy" alt=""
-                                                    src="https://cdn.prod.website-files.com/63238e717124a8c9a4c94e41/632646648894df17d8cc6f1d_arrow-pointing-to-right.svg"
-                                                    class="faq-arrow" /></div>
-                                        </a>
-                                        <div class="accordion-item-content">
-                                            <p class="pricing-overview">Nam libero tempore cume soluta nobis est
-                                                eligendi.</p>
-                                        </div>
-                                        <div class="divider-line"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pricing-button-box"><a href="/contact-us"
-                                    class="button-pricing-outline w-button">Get This Plan!</a></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="people-container">
-                    <div class="cabins-box _1">
-                        <div data-w-id="88471a7f-f009-e2d5-693e-3f9d42e915a3" class="cabins"></div>
-                        <div class="cabin-text-box visible">
-                            <div class="radial-name">Futuristic Cabin</div>
-                            <div>
-                                <div class="people-job-title">Chicago</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cabins-box _3">
-                        <div data-w-id="88471a7f-f009-e2d5-693e-3f9d42e915ab" class="cabins _3"></div>
-                        <div class="cabin-text-box">
-                            <div class="radial-name">Minimal Cabin</div>
-                            <div>
-                                <div class="people-job-title">Washington</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cabins-box _4">
-                        <div data-w-id="88471a7f-f009-e2d5-693e-3f9d42e915bb" class="cabins _4"></div>
-                        <div class="cabin-text-box">
-                            <div class="radial-name">Mini Cabin</div>
-                            <div>
-                                <div class="people-job-title">Utha</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cabins-box _5">
-                        <div data-w-id="88471a7f-f009-e2d5-693e-3f9d42e915c3" class="cabins _5"></div>
-                        <div class="cabin-text-box">
-                            <div class="radial-name">Miles Esther</div>
-                            <div>
-                                <div class="people-job-title">Product Designer</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cabins-box _2">
-                        <div class="cabin-text-box">
-                            <div>
-                                <div class="radial-name">Modern Cabin</div>
-                                <div>
-                                    <div class="people-job-title">California</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div data-w-id="88471a7f-f009-e2d5-693e-3f9d42e915d2" class="cabins _2"></div>
-                    </div>
-                    <div class="cabins-box _6">
-                        <div class="cabin-text-box">
-                            <div>
-                                <div class="radial-name">Wood Cabin</div>
-                                <div>
-                                    <div class="people-job-title">Seattle</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div data-w-id="88471a7f-f009-e2d5-693e-3f9d42e915db" class="cabins _6"></div>
-                    </div>
-                </div><a href="#Faq" data-w-id="88471a7f-f009-e2d5-693e-3f9d42e915dc"
-                    class="scroll-up-link white w-inline-block">
-                    <div class="scroll-down-box"><img width="28" loading="lazy" alt=""
-                            src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/670fea656a81c75f966a40a8_66fef51bb2a32743f5c00083_Top-Arrow.png"
-                            class="upside-donw-arrow" /></div>
-                </a>
             </div>
-        </div> -->
+            <div class="proximity-section">
+                <div class="proximity-buttons">
+                    <div class="title">Neighbourhood</div>
+                    <button onclick="showCategory('hospitals')">Hospitals</button>
+                    <button onclick="showCategory('transportation')">Transportation</button>
+                    <button onclick="showCategory('education')">Education</button>
+                    <button onclick="showCategory('shopping')">Shopping</button>
+                    <button onclick="showCategory('interesting')">Interesting Places</button>
+                    <button onclick="showCategory('placesOfWorship')">Places of Worship</button> <!-- Added this button -->
+                </div>
+                
+                <!-- Map Container -->
+                <div id="proximity-map" class="map-container"></div>
+            </div>
+        </div>
+        
         <div id="Faq" class="content-section-faq tab"><a data-w-id="a92a65b6-4a23-b75c-f784-56c69d2734a8"
                 style="-webkit-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(null) rotateY(0) rotateZ(90deg) skew(0, 0);-moz-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(null) rotateY(0) rotateZ(90deg) skew(0, 0);-ms-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(null) rotateY(0) rotateZ(90deg) skew(0, 0);transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(null) rotateY(0) rotateZ(90deg) skew(0, 0);transform-style:preserve-3d"
                 href="#" class="side-contact-tab">Contact us</a>
@@ -1403,326 +899,21 @@
                                         specific needs!</p>
                                 </div>
                             </div>
-                            <div class="flex-team">
+                            <!-- <div class="flex-team">
                                 <div data-w-id="11772c8c-f51a-781b-041f-53007d78d1eb" class="picture _1"></div>
                                 <div data-w-id="11772c8c-f51a-781b-041f-53007d78d1ec" class="picture _2"></div>
                                 <div data-w-id="11772c8c-f51a-781b-041f-53007d78d1ed" class="picture _3"></div>
                                 <div class="flex-center-team">
                                     <div>We&#x27;re here to help, <a href="/contact-us">contact us</a>!</div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="content-section">
-            <div class="content-wrapper w-container">
-                <div data-delay="4000" data-animation="slide" class="slider w-slider" data-autoplay="true"
-                    data-easing="ease" data-hide-arrows="false" data-disable-swipe="false" data-autoplay-limit="0"
-                    data-nav-spacing="3" data-duration="500" data-infinite="true">
-                    <div class="w-slider-mask">
-                        <div class="w-slide">
-                            <div class="flex-testimonial">
-                                <div class="text-column-testimonial">
-                                    <div class="max-pixels-450">
-                                        <div>
-                                            <div class="title">Testimonial</div>
-                                        </div>
-                                        <div class="testimonial-text">&quot;We had an amazing stay! The cabin was
-                                            spotless, cozy, and fully equipped. We&#x27;ll definitely be back for
-                                            another relaxing vacation.&quot;</div>
-                                        <div class="testimonial-name-box">
-                                            <div>
-                                                <div class="testimonial-name">— Zara Altman, CEO OpenAI</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="testimonial-image-column">
-                                    <div class="testimonial-box"><img width="568.5"
-                                            sizes="(max-width: 479px) 100vw, (max-width: 767px) 78vw, (max-width: 991px) 44vw, (max-width: 1279px) 45vw, 558.9921875px"
-                                            alt=""
-                                            src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00052_Work_bg-2.jpg"
-                                            loading="lazy"
-                                            srcset="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00052_Work_bg-2-p-500.jpg 500w, https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00052_Work_bg-2-p-800.jpg 800w, https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00052_Work_bg-2-p-1080.jpg 1080w, https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00052_Work_bg-2.jpg 1127w" />
-                                        <div class="change-this-image testimonial"></div>
-                                        <div class="reviews-stars">
-                                            <div class="stars"><img width="15" loading="lazy" alt=""
-                                                    src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c0008c_Star.png"
-                                                    class="star" /><img width="15" height="Auto" alt=""
-                                                    src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c0008c_Star.png"
-                                                    loading="lazy" class="star" /><img width="15" height="Auto" alt=""
-                                                    src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c0008c_Star.png"
-                                                    loading="lazy" class="star" /><img width="15" height="Auto" alt=""
-                                                    src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c0008c_Star.png"
-                                                    loading="lazy" class="star" /><img width="15" height="Auto" alt=""
-                                                    src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c0008c_Star.png"
-                                                    loading="lazy" class="star" />
-                                                <div>
-                                                    <div class="mini-text-testimonial">5 of 5 Stars</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="w-slide">
-                            <div class="flex-testimonial">
-                                <div class="text-column-testimonial">
-                                    <div class="max-pixels-450">
-                                        <div>
-                                            <div class="title">Testimonial</div>
-                                        </div>
-                                        <div class="testimonial-text">&quot;This rental exceeded our expectations! The
-                                            host was attentive and made everything easy. Highly recommend!&quot;</div>
-                                        <div class="testimonial-name-box">
-                                            <div>
-                                                <div class="testimonial-name">— Ryan Garcia, Business Owner</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="image-column">
-                                    <div class="testimonial-box"><img width="568.5"
-                                            sizes="(max-width: 479px) 100vw, (max-width: 767px) 78vw, (max-width: 991px) 44vw, (max-width: 1279px) 45vw, 558.9921875px"
-                                            alt=""
-                                            src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00052_Work_bg-2.jpg"
-                                            loading="lazy"
-                                            srcset="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00052_Work_bg-2-p-500.jpg 500w, https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00052_Work_bg-2-p-800.jpg 800w, https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00052_Work_bg-2-p-1080.jpg 1080w, https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00052_Work_bg-2.jpg 1127w" />
-                                        <div class="change-this-image testimonial-2"></div>
-                                        <div class="reviews-stars">
-                                            <div class="stars"><img width="15" loading="lazy" alt=""
-                                                    src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c0008c_Star.png"
-                                                    class="star" /><img width="15" height="Auto" alt=""
-                                                    src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c0008c_Star.png"
-                                                    loading="lazy" class="star" /><img width="15" height="Auto" alt=""
-                                                    src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c0008c_Star.png"
-                                                    loading="lazy" class="star" /><img width="15" height="Auto" alt=""
-                                                    src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c0008c_Star.png"
-                                                    loading="lazy" class="star" /><img width="15" height="Auto" alt=""
-                                                    src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c0008c_Star.png"
-                                                    loading="lazy" class="star" />
-                                                <div>
-                                                    <div class="mini-text-testimonial">5 of 5 Stars</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="w-slide">
-                            <div class="flex-testimonial">
-                                <div class="text-column-testimonial">
-                                    <div class="max-pixels-450">
-                                        <div>
-                                            <div class="title">Testimonial</div>
-                                        </div>
-                                        <div class="testimonial-text">&quot;The cabin was beautiful, and the atmosphere
-                                            was so serene. We loved the outdoor space and the attention to detail
-                                            inside. Absolutely loved it!&quot;</div>
-                                        <div class="testimonial-name-box">
-                                            <div>
-                                                <div class="testimonial-name">— Selena Adams, Entrepreneur</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="image-column">
-                                    <div class="testimonial-box"><img width="568.5"
-                                            sizes="(max-width: 479px) 100vw, (max-width: 767px) 78vw, (max-width: 991px) 44vw, (max-width: 1279px) 45vw, 558.9921875px"
-                                            alt=""
-                                            src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00052_Work_bg-2.jpg"
-                                            loading="lazy"
-                                            srcset="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00052_Work_bg-2-p-500.jpg 500w, https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00052_Work_bg-2-p-800.jpg 800w, https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00052_Work_bg-2-p-1080.jpg 1080w, https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00052_Work_bg-2.jpg 1127w" />
-                                        <div class="change-this-image testimonial-3"></div>
-                                        <div class="reviews-stars">
-                                            <div class="stars"><img width="15" loading="lazy" alt=""
-                                                    src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c0008c_Star.png"
-                                                    class="star" /><img width="15" height="Auto" alt=""
-                                                    src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c0008c_Star.png"
-                                                    loading="lazy" class="star" /><img width="15" height="Auto" alt=""
-                                                    src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c0008c_Star.png"
-                                                    loading="lazy" class="star" /><img width="15" height="Auto" alt=""
-                                                    src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c0008c_Star.png"
-                                                    loading="lazy" class="star" /><img width="15" height="Auto" alt=""
-                                                    src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c0008c_Star.png"
-                                                    loading="lazy" class="star" />
-                                                <div>
-                                                    <div class="mini-text-testimonial">5 of 5 Stars</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="display-none w-slider-arrow-left">
-                        <div class="w-icon-slider-left"></div>
-                    </div>
-                    <div class="display-none w-slider-arrow-right">
-                        <div class="w-icon-slider-right"></div>
-                    </div>
-                    <div class="slide-nav w-slider-nav w-slider-nav-invert w-round"></div>
-                </div>
-            </div>
-        </div>
-        <div class="content-section double">
-            <div class="content-wrapper w-container">
-                <div class="heading-medium">
-                    <div>
-                        <div class="title">Features</div>
-                    </div>
-                    <div>
-                        <h4 class="h4-big">Luxury Living</h4>
-                    </div>
-                    <div class="max-469-pixels">
-                        <div data-w-id="1e75c33b-779a-12b4-9ac3-4594811baf1b" class="subtitle">Redefine your lifestyle with modern sophistication.</div>
-                    </div>
-                </div>
-                <div>
-                    <div class="features">
-                        <div class="feature-column">
-                            <div data-w-id="8ea8ed58-81cd-3a13-b18c-887976027e2a" class="feature">
-                                <div data-w-id="beb57492-bdb3-2d25-d7f2-b369d9f7e81e" style="opacity:0"
-                                    class="feature-item">
-                                    <div class="icon-feature">
-                                        <div class="feature-icon-box">
-                                            <div class="icon-up _1"></div>
-                                            <div class="icon-down _1"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="expand-feature">
-                                    <div data-w-id="7eb121d6-051a-0ba0-f60b-7b552fbd0886" style="opacity:0">
-                                        <div class="title-box">
-                                            <div class="title-medium">Spacious Interiors</div>
-                                        </div>
-                                        <div class="paragraph-box">
-                                            <p>Expansive floor plans for comfort and style.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div data-w-id="627fea3c-a493-5b14-b668-b05a2b18b889" class="feature">
-                                <div data-w-id="627fea3c-a493-5b14-b668-b05a2b18b88a" style="opacity:0"
-                                    class="feature-item">
-                                    <div class="icon-feature">
-                                        <div class="feature-icon-box">
-                                            <div class="icon-up _2"></div>
-                                            <div class="icon-down _2"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="expand-feature">
-                                    <div data-w-id="627fea3c-a493-5b14-b668-b05a2b18b890" style="opacity:0">
-                                        <div class="title-box">
-                                            <div class="title-medium">State-of-the-Art Kitchens</div>
-                                        </div>
-                                        <div class="paragraph-box">
-                                            <p>Fully equipped spaces for culinary enthusiasts.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div data-w-id="ee20bb4c-6e13-df00-e12e-b7ca45d2ce99" class="feature before-last">
-                                <div data-w-id="ee20bb4c-6e13-df00-e12e-b7ca45d2ce9a" style="opacity:0"
-                                    class="feature-item">
-                                    <div class="icon-feature">
-                                        <div class="feature-icon-box">
-                                            <div class="icon-up _3"></div>
-                                            <div class="icon-down _3"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="expand-feature">
-                                    <div data-w-id="ee20bb4c-6e13-df00-e12e-b7ca45d2cea0" style="opacity:0">
-                                        <div class="title-box">
-                                            <div class="title-medium">Pet-Friendly Spaces</div>
-                                        </div>
-                                        <div class="paragraph-box">
-                                            <p>Designed for you and your furry companions.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="feature-column right">
-                            <div data-w-id="84d71988-04d2-eb18-fd3e-69b7ffd7b7a5" class="feature">
-                                <div data-w-id="84d71988-04d2-eb18-fd3e-69b7ffd7b7a6" style="opacity:0"
-                                    class="feature-item">
-                                    <div class="icon-feature">
-                                        <div class="feature-icon-box">
-                                            <div class="icon-up _4"></div>
-                                            <div class="icon-down _4"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="expand-feature">
-                                    <div data-w-id="84d71988-04d2-eb18-fd3e-69b7ffd7b7ac" style="opacity:0">
-                                        <div class="title-box">
-                                            <div class="title-medium">Breathtaking Views</div>
-                                        </div>
-                                        <div class="paragraph-box">
-                                            <p>Panoramic vistas from South India’s tallest residential tower.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div data-w-id="84d71988-04d2-eb18-fd3e-69b7ffd7b7b3" class="feature">
-                                <div data-w-id="84d71988-04d2-eb18-fd3e-69b7ffd7b7b4" style="opacity:0"
-                                    class="feature-item">
-                                    <div class="icon-feature">
-                                        <div class="feature-icon-box">
-                                            <div class="icon-up _5"></div>
-                                            <div class="icon-down _5"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="expand-feature">
-                                    <div data-w-id="84d71988-04d2-eb18-fd3e-69b7ffd7b7ba" style="opacity:0">
-                                        <div class="title-box">
-                                            <div class="title-medium">Outdoor Deck</div>
-                                        </div>
-                                        <div class="paragraph-box">
-                                            <p>Balconies and decks for relaxation and stunning views.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div data-w-id="84d71988-04d2-eb18-fd3e-69b7ffd7b7c1" class="feature last">
-                                <div data-w-id="84d71988-04d2-eb18-fd3e-69b7ffd7b7c2" style="opacity:0"
-                                    class="feature-item">
-                                    <div class="icon-feature">
-                                        <div class="feature-icon-box">
-                                            <div class="icon-up _6"></div>
-                                            <div class="icon-down _6"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="expand-feature">
-                                    <div data-w-id="84d71988-04d2-eb18-fd3e-69b7ffd7b7c8" style="opacity:0">
-                                        <div class="title-box">
-                                            <div class="title-medium">Exclusive Amenities</div>
-                                        </div>
-                                        <div class="paragraph-box">
-                                            <p>Private parking and unmatched hospitality.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="center-content"><a href="#Contact-Us" class="button-outline w-button">Learn More!</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="Contact-Us" class="content-section no-padding">
+
+        <div id="Contact-Us" class="content-section-map no-padding">
             <div class="narrow-container">
                 <div class="contact-flex">
                     <div data-w-id="ee0f7a71-698c-3fd8-9074-281150f6ae68" class="parrallax-image contact-us"></div>
@@ -1743,8 +934,7 @@
                             <h6 class="h6-big">Send Us Your<br />Message!</h6>
                             <div class="max-340-pixels">
                                 <div class="hidden">
-                                    <p class="text-white">Escape to tranquility with our cozy cabin rental, nestled in
-                                        nature&#x27;s embrace <br />perfect for those seeking a peaceful.</p>
+                                    <p class="text-white">Experience luxury and tranquility at Bhandary Vertica, where serene living meets breathtaking views.</p>
                                 </div>
                             </div>
                         </div><img
@@ -1798,337 +988,188 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- <div class="content-section">
-            <div class="content-wrapper w-container">
-                <div class="heading-flex-separated">
-                    <div class="heading-left-box">
-                        <h5 class="h5">Updates</h5>
-                    </div>
-                    <div class="heading-right-box">
-                        <div class="subtitle indent">A practice not without controversy, laying out pages </div>
-                    </div>
-                    <div class="divider-line"></div>
-                </div>
-                <div class="w-dyn-list">
-                    <div role="list" class="flex w-dyn-items">
-                        <div data-w-id="d232b561-6385-4bed-fae3-3ce86bc3f321" style="opacity:0" role="listitem"
-                            class="item-preview w-dyn-item">
-                            <div class="flex"><a data-w-id="8511bb84-268a-2b7a-3021-f1978bdb992f"
-                                    href="/post/today-we-launch-cabin-a-rental-template-on-webflow-"
-                                    class="blog-preview-image w-inline-block"><img
-                                        sizes="(max-width: 479px) 100vw, (max-width: 767px) 44vw, (max-width: 991px) 29vw, (max-width: 1279px) 30vw, 369.828125px"
-                                        srcset="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00050_Blog_bg-p-500.jpg 500w, https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00050_Blog_bg.jpg 731w"
-                                        alt=""
-                                        src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00050_Blog_bg.jpg"
-                                        loading="lazy" />
-                                    <div data-w-id="8511bb84-268a-2b7a-3021-f1978bdb9931"
-                                        style="background-image:url(&quot;https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff97/66fef51bb2a32743f5c0001b_chris-rosiak-gpp9Wyw15ck-unsplash.jpg&quot;)"
-                                        class="parallax-image flex-center">
-                                        <div style="display:none;opacity:0" class="item-hover-overlay"></div>
-                                        <div style="opacity:0" class="blur-hover-overlay"></div>
-                                        <div style="-webkit-transform:translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
-                                            class="button-hover">Read<br />More</div>
-                                    </div>
-                                </a>
-                                <div class="blog-text-box"><a href="/category/travel"
-                                        class="blog-category-link">Travel</a>
-                                    <div class="title-box"><a
-                                            href="/post/today-we-launch-cabin-a-rental-template-on-webflow-"
-                                            class="preview-item-link">Today We Launch Cabin Rental CMS Template!</a>
-                                    </div>
-                                    <div class="subtitle-box">
-                                        <p>Cabin CMS Rental Webflow Template is designed just for you. </p>
-                                    </div>
-                                    <div class="button-box _30-pixels"><a
-                                            href="/post/today-we-launch-cabin-a-rental-template-on-webflow-"
-                                            class="button-outline dark w-button">Read More</a></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div data-w-id="d232b561-6385-4bed-fae3-3ce86bc3f321" style="opacity:0" role="listitem"
-                            class="item-preview w-dyn-item">
-                            <div class="flex"><a data-w-id="8511bb84-268a-2b7a-3021-f1978bdb992f"
-                                    href="/post/why-cabin-template-elevates-short-term-rental-sites"
-                                    class="blog-preview-image w-inline-block"><img
-                                        sizes="(max-width: 479px) 100vw, (max-width: 767px) 44vw, (max-width: 991px) 29vw, (max-width: 1279px) 30vw, 369.828125px"
-                                        srcset="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00050_Blog_bg-p-500.jpg 500w, https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00050_Blog_bg.jpg 731w"
-                                        alt=""
-                                        src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00050_Blog_bg.jpg"
-                                        loading="lazy" />
-                                    <div data-w-id="8511bb84-268a-2b7a-3021-f1978bdb9931"
-                                        style="background-image:url(&quot;https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff97/66fef51bb2a32743f5c0001a_boxed-water-is-better-5Lw1U5BIumE-unsplash.jpg&quot;)"
-                                        class="parallax-image flex-center">
-                                        <div style="display:none;opacity:0" class="item-hover-overlay"></div>
-                                        <div style="opacity:0" class="blur-hover-overlay"></div>
-                                        <div style="-webkit-transform:translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
-                                            class="button-hover">Read<br />More</div>
-                                    </div>
-                                </a>
-                                <div class="blog-text-box"><a href="/category/update"
-                                        class="blog-category-link">Update</a>
-                                    <div class="title-box"><a
-                                            href="/post/why-cabin-template-elevates-short-term-rental-sites"
-                                            class="preview-item-link"> Cabin Template Elevates Short-Term Rental
-                                            Sites</a></div>
-                                    <div class="subtitle-box">
-                                        <p>Cabin CMS Rental Webflow Template is designed just for you. </p>
-                                    </div>
-                                    <div class="button-box _30-pixels"><a
-                                            href="/post/why-cabin-template-elevates-short-term-rental-sites"
-                                            class="button-outline dark w-button">Read More</a></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div data-w-id="d232b561-6385-4bed-fae3-3ce86bc3f321" style="opacity:0" role="listitem"
-                            class="item-preview w-dyn-item">
-                            <div class="flex"><a data-w-id="8511bb84-268a-2b7a-3021-f1978bdb992f"
-                                    href="/post/boost-bookings-with-the-cabin-webflow-template"
-                                    class="blog-preview-image w-inline-block"><img
-                                        sizes="(max-width: 479px) 100vw, (max-width: 767px) 44vw, (max-width: 991px) 29vw, (max-width: 1279px) 30vw, 369.828125px"
-                                        srcset="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00050_Blog_bg-p-500.jpg 500w, https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00050_Blog_bg.jpg 731w"
-                                        alt=""
-                                        src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00050_Blog_bg.jpg"
-                                        loading="lazy" />
-                                    <div data-w-id="8511bb84-268a-2b7a-3021-f1978bdb9931"
-                                        style="background-image:url(&quot;https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff97/66fef51bb2a32743f5c00019_al-soot-q9-rkEJfIG4-unsplash.jpg&quot;)"
-                                        class="parallax-image flex-center">
-                                        <div style="display:none;opacity:0" class="item-hover-overlay"></div>
-                                        <div style="opacity:0" class="blur-hover-overlay"></div>
-                                        <div style="-webkit-transform:translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
-                                            class="button-hover">Read<br />More</div>
-                                    </div>
-                                </a>
-                                <div class="blog-text-box"><a href="/category/travel"
-                                        class="blog-category-link">Travel</a>
-                                    <div class="title-box"><a
-                                            href="/post/boost-bookings-with-the-cabin-webflow-template"
-                                            class="preview-item-link">Boost Bookings with the Cabin CMS Webflow </a>
-                                    </div>
-                                    <div class="subtitle-box">
-                                        <p>Cabin CMS Rental Webflow Template is designed just for you.</p>
-                                    </div>
-                                    <div class="button-box _30-pixels"><a
-                                            href="/post/boost-bookings-with-the-cabin-webflow-template"
-                                            class="button-outline dark w-button">Read More</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        <!-- <div class="content-section last">
-            <div class="w-layout-blockcontainer content-wrapper w-container">
-                <div class="full-width-box">
-                    <div class="instagram-flex-space">
-                        <h6 class="h6">Instagram</h6><a href="https://webflow.com/templates/designers/pablo-ramos"
-                            target="_blank" class="link-instagram">@Cabin</a>
-                    </div>
-                </div>
-                <div class="flex-instagram"><a data-w-id="f39b9c21-5e0b-8924-df03-d5f4bf1d2b29"
-                        href="https://www.instagram.com/" target="_blank" class="insta-pic w-inline-block"><img
-                            width="308"
-                            sizes="(max-width: 479px) 100vw, (max-width: 767px) 43vw, (max-width: 991px) 22vw, (max-width: 1279px) 23vw, 280.3515625px"
-                            alt=""
-                            src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c0009e_Insta-bg.jpg"
-                            srcset="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c0009e_Insta-bg-p-500.jpg 500w, https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c0009e_Insta-bg.jpg 549w" />
-                        <div class="change-this-image insta">
-                            <div data-w-id="f39b9c21-5e0b-8924-df03-d5f4bf1d2b2c" class="interaction-slide"></div>
-                        </div>
-                        <div class="hover-insta-overlay"><img width="40"
-                                data-w-id="f39b9c21-5e0b-8924-df03-d5f4bf1d2b2e" alt=""
-                                src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c000a9_insta_dark.png"
-                                class="hover-icon" /></div>
-                    </a><a data-w-id="f39b9c21-5e0b-8924-df03-d5f4bf1d2b2f" href="https://www.instagram.com/"
-                        target="_blank" class="insta-pic w-inline-block"><img width="308"
-                            sizes="(max-width: 479px) 100vw, (max-width: 767px) 43vw, (max-width: 991px) 22vw, (max-width: 1279px) 23vw, 280.3515625px"
-                            alt=""
-                            src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c0009e_Insta-bg.jpg"
-                            srcset="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c0009e_Insta-bg-p-500.jpg 500w, https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c0009e_Insta-bg.jpg 549w" />
-                        <div class="change-this-image insta-2">
-                            <div data-w-id="f39b9c21-5e0b-8924-df03-d5f4bf1d2b32" class="interaction-slide"></div>
-                            <div class="hover-insta-overlay"><img width="40"
-                                    data-w-id="f39b9c21-5e0b-8924-df03-d5f4bf1d2b34" alt=""
-                                    src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c000a9_insta_dark.png"
-                                    class="hover-icon" /></div>
-                        </div>
-                    </a><a data-w-id="f39b9c21-5e0b-8924-df03-d5f4bf1d2b35" href="https://www.instagram.com/"
-                        target="_blank" class="insta-pic _3 w-inline-block"><img width="308"
-                            sizes="(max-width: 479px) 100vw, (max-width: 767px) 43vw, (max-width: 991px) 22vw, (max-width: 1279px) 23vw, 280.3515625px"
-                            alt=""
-                            src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c0009e_Insta-bg.jpg"
-                            srcset="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c0009e_Insta-bg-p-500.jpg 500w, https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c0009e_Insta-bg.jpg 549w" />
-                        <div class="change-this-image insta-3">
-                            <div data-w-id="f39b9c21-5e0b-8924-df03-d5f4bf1d2b38" class="interaction-slide"></div>
-                        </div>
-                        <div class="hover-insta-overlay"><img width="40"
-                                data-w-id="f39b9c21-5e0b-8924-df03-d5f4bf1d2b3a" alt=""
-                                src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c000a9_insta_dark.png"
-                                class="hover-icon" /></div>
-                    </a><a data-w-id="f39b9c21-5e0b-8924-df03-d5f4bf1d2b3b" href="https://www.instagram.com/"
-                        target="_blank" class="insta-pic _4 w-inline-block"><img width="308"
-                            sizes="(max-width: 479px) 100vw, (max-width: 767px) 43vw, (max-width: 991px) 22vw, (max-width: 1279px) 23vw, 280.3515625px"
-                            alt=""
-                            src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c0009e_Insta-bg.jpg"
-                            srcset="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c0009e_Insta-bg-p-500.jpg 500w, https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c0009e_Insta-bg.jpg 549w" />
-                        <div class="change-this-image insta-4">
-                            <div data-w-id="f39b9c21-5e0b-8924-df03-d5f4bf1d2b3e" class="interaction-slide"></div>
-                        </div>
-                        <div class="hover-insta-overlay"><img width="40"
-                                data-w-id="f39b9c21-5e0b-8924-df03-d5f4bf1d2b40" alt=""
-                                src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c000a9_insta_dark.png"
-                                class="hover-icon" /></div>
-                    </a></div>
-            </div>
-        </div> -->
-        <!-- <div class="footer">
-            <div class="big-text-box">
-                <div class="works-big-text">Contact Us</div>
-            </div>
-            <div class="content-wrapper w-container">
-                <div class="flex">
-                    <div class="footer-left"><img width="238.5" data-w-id="6f48aff4-2adf-af22-0de7-30b3d3fe3820" alt=""
-                            src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c0009c_Dotted-Arrow-Contact.png"
-                            loading="lazy" class="dotted-arrow-footer" />
-                        <div>
-                            <div><a href="/" aria-current="page" class="footer-logo w-inline-block w--current"><img
-                                        width="79" loading="lazy" alt=""
-                                        src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c000ac_Logo-white.png" /></a>
-                            </div>
-                            <div>
-                                <h4 class="h4-footer">Get in Touch<br />With Us</h4>
-                            </div>
-                            <div class="max-340-pixels">
-                                <div class="hidden">
-                                    <p class="text-white">Escape to tranquility with our cozy cabin rental, nestled in
-                                        nature&#x27;s embrace <br />perfect for those seeking a peaceful.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="footer-right">
-                        <div class="menu">
-                            <div class="footer-title">Company</div>
-                            <div>
-                                <div class="footer-top-margin"><a href="/"
-                                        data-w-id="6f48aff4-2adf-af22-0de7-30b3d3fe3836" aria-current="page"
-                                        class="footer-menu-link w-inline-block w--current">
-                                        <div>Home</div>
-                                        <div class="footer-underline"></div>
-                                    </a></div>
-                                <div class="footer-top-margin"><a href="/changelog-copy"
-                                        data-w-id="6f48aff4-2adf-af22-0de7-30b3d3fe383b"
-                                        class="footer-menu-link w-inline-block">
-                                        <div>About Us</div>
-                                        <div class="footer-underline"></div>
-                                    </a></div>
-                                <div class="footer-top-margin"><a href="/cabins"
-                                        data-w-id="6f48aff4-2adf-af22-0de7-30b3d3fe3840"
-                                        class="footer-menu-link w-inline-block">
-                                        <div>Cabins</div>
-                                        <div class="footer-underline"></div>
-                                    </a></div>
-                                <div class="footer-top-margin"><a href="/pricing"
-                                        data-w-id="6f48aff4-2adf-af22-0de7-30b3d3fe3845"
-                                        class="footer-menu-link w-inline-block">
-                                        <div>Pricing</div>
-                                        <div class="footer-underline"></div>
-                                    </a></div>
-                                <div class="footer-top-margin"><a href="/blog"
-                                        data-w-id="6f48aff4-2adf-af22-0de7-30b3d3fe384a"
-                                        class="footer-menu-link w-inline-block">
-                                        <div>Blog</div>
-                                        <div class="footer-underline"></div>
-                                    </a></div>
-                                <div class="footer-top-margin"><a href="/faq"
-                                        data-w-id="6f48aff4-2adf-af22-0de7-30b3d3fe384f"
-                                        class="footer-menu-link w-inline-block">
-                                        <div>FAQ</div>
-                                        <div class="footer-underline"></div>
-                                    </a></div>
-                                <div class="footer-top-margin"><a href="/contact-us"
-                                        data-w-id="6f48aff4-2adf-af22-0de7-30b3d3fe3854"
-                                        class="footer-menu-link w-inline-block">
-                                        <div>Contact Us</div>
-                                        <div class="footer-underline"></div>
-                                    </a></div>
-                            </div>
-                        </div>
-                        <div class="menu _3">
-                            <div class="footer-title">Social</div>
-                            <div>
-                                <div class="footer-top-margin"><a href="http://Facebook"
-                                        data-w-id="6f48aff4-2adf-af22-0de7-30b3d3fe385d" target="_blank"
-                                        class="footer-menu-link w-inline-block">
-                                        <div>Facebook</div>
-                                        <div class="footer-underline"></div>
-                                    </a></div>
-                                <div class="footer-top-margin"><a href="http://Instagram.com"
-                                        data-w-id="6f48aff4-2adf-af22-0de7-30b3d3fe3862" target="_blank"
-                                        class="footer-menu-link w-inline-block">
-                                        <div>Instagram</div>
-                                        <div class="footer-underline"></div>
-                                    </a></div>
-                                <div class="footer-top-margin"><a href="http://Likedin.com"
-                                        data-w-id="6f48aff4-2adf-af22-0de7-30b3d3fe3867" target="_blank"
-                                        class="footer-menu-link w-inline-block">
-                                        <div>Linkedin</div>
-                                        <div class="footer-underline"></div>
-                                    </a></div>
-                            </div>
-                        </div>
-                        <div class="menu last">
-                            <div class="footer-title">Pages</div>
-                            <div>
-                                <div class="footer-top-margin"><a href="/resources/style-guide"
-                                        data-w-id="6f48aff4-2adf-af22-0de7-30b3d3fe3870"
-                                        class="footer-menu-link w-inline-block">
-                                        <div>Style Guide</div>
-                                        <div class="footer-underline"></div>
-                                    </a></div>
-                                <div class="footer-top-margin"><a href="/resources/instructions"
-                                        data-w-id="6f48aff4-2adf-af22-0de7-30b3d3fe3875"
-                                        class="footer-menu-link w-inline-block">
-                                        <div>Instructions</div>
-                                        <div class="footer-underline"></div>
-                                    </a></div>
-                                <div class="footer-top-margin"><a href="/resources/licensing"
-                                        data-w-id="6f48aff4-2adf-af22-0de7-30b3d3fe387a"
-                                        class="footer-menu-link w-inline-block">
-                                        <div>Licensing</div>
-                                        <div class="footer-underline"></div>
-                                    </a></div>
-                                <div class="footer-top-margin"><a href="/resources/changelog"
-                                        data-w-id="6f48aff4-2adf-af22-0de7-30b3d3fe387f"
-                                        class="footer-menu-link w-inline-block">
-                                        <div>Changelog</div>
-                                        <div class="footer-underline"></div>
-                                    </a></div>
-                                <div class="footer-top-margin"><a
-                                        href="https://webflow.com/templates/html/cabincms-real-estate-website-template"
-                                        data-w-id="2eddefcb-db0d-8aae-9f74-a00d30ad74c2" target="_blank"
-                                        class="footer-menu-link yellow w-inline-block">
-                                        <div>Buy Template!</div>
-                                        <div class="footer-underline"></div>
-                                    </a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div><a href="#" data-w-id="6f48aff4-2adf-af22-0de7-30b3d3fe3883" class="scroll-up-link w-inline-block">
-                <div class="scroll-down-box"><img width="28" loading="lazy" alt=""
-                        src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00083_Top-Arrow.png"
-                        class="scroll-down-arrow" /></div>
-            </a>
-        </div><a href="#Intro" data-w-id="9fd864fa-9281-2c27-3da7-688851d9053e" style="opacity:1;display:none"
-            class="go-up-button w-inline-block"></a>
-    </div> -->
+        </div>  
+        
+        
+
     <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=66fef51bb2a32743f5bfff90"
         type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
         crossorigin="anonymous"></script>
     <script src="scripts.js" type="text/javascript"></script>
     <script src="common-scripts.js" type="text/javascript"></script>
+
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+        const map = L.map('proximity-map', {
+            attributionControl: false  // This disables the default attribution control
+        }).setView([12.9177, 74.8560], 14); // Center on Bhandary Vertica
+    
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/attributions">Carto</a>',
+        }).addTo(map);
+    
+        // Custom icon for Bhandary Vertica
+        const verticaIcon = L.icon({
+            iconUrl: 'https://img.icons8.com/ios/452/marker.png', // Custom icon URL
+            iconSize: [32, 32],
+            iconAnchor: [16, 32],
+            popupAnchor: [0, -32]
+        });
+    
+        // Add Bhandary Vertica marker with custom icon
+        const verticaMarker = L.marker([12.9177, 74.8560], { icon: verticaIcon }).addTo(map);
+        verticaMarker.bindPopup('<b>Bhandary Vertica</b><br>Location of the project').openPopup();
+    
+        // Locations for the hospitals
+        const hospitals = [
+            { name: "KMC Hospital, Attavar", lat: 12.9271, lng: 74.8486, icon: "🏥", distance: "2.8 KMs" },
+            { name: "City Hospital, Mallikatte, Kadri", lat: 12.8679, lng: 74.8469, icon: "🏥", distance: "1 KMs" },
+            { name: "Father Muller Hospital, Kankanady", lat: 12.9121, lng: 74.8520, icon: "🏥", distance: "2.9 KMs" },
+            { name: "Tejasvini Hospital, Mallikatte, Kadri", lat: 12.8661, lng: 74.8481, icon: "🏥", distance: "1 KMs" }
+        ];
+    
+        // Locations for the transportation
+        const transportation = [
+            { name: "Mangalore International Airport", lat: 12.9763, lng: 74.8907, icon: "✈️", distance: "14.5 KMs" },
+            { name: "Mangalore Central Railways", lat: 12.8707, lng: 74.8839, icon: "🚉", distance: "2.9 KMs" },
+            { name: "Mangalore Junction Railways", lat: 12.8740, lng: 74.8772, icon: "🚉", distance: "4.9 KMs" },
+            { name: "KSRTC Bus Stop", lat: 12.8705, lng: 74.8564, icon: "🚌", distance: "1.9 KMs" }
+        ];
+    
+        // Locations for educational institutes
+        const education = [
+            { name: "St.Aloysius College, Light House Hill Road", lat: 12.9203, lng: 74.8449, icon: "🎓", distance: "1.4 KMs" },
+            { name: "SDM Law College, M.G. Road", lat: 12.8704, lng: 74.8556, icon: "🎓", distance: "1.2 KMs" },
+            { name: "Kasturba Medical College", lat: 12.9153, lng: 74.8487, icon: "🎓", distance: "1.9 KMs" },
+            { name: "School of Social Work Roshini Nilaya", lat: 12.9141, lng: 74.8432, icon: "🎓", distance: "2.9 KMs" }
+        ];
+    
+        // Locations for shopping centers
+        const shopping = [
+            { name: "City Center", lat: 12.8680, lng: 74.8565, icon: "🛍️", distance: "2.2 KMs" },
+            { name: "Forum Fiza Mall", lat: 12.9701, lng: 74.8687, icon: "🛍️", distance: "3.4 KMs" },
+            { name: "Big Bazaar", lat: 12.8722, lng: 74.8491, icon: "🛍️", distance: "1.8 KMs" },
+            { name: "Mak Mall, Kankanady", lat: 12.9165, lng: 74.8528, icon: "🛍️", distance: "2.6 KMs" }
+        ];
+    
+        // Locations for interesting places
+        const interestingPlaces = [
+            { name: "Bejai Museum", lat: 12.9072, lng: 74.8497, icon: "🏛️", distance: "1.3 KMs" },
+            { name: "Mangala Stadium", lat: 12.8732, lng: 74.8795, icon: "🏟️", distance: "2.4 KMs" },
+            { name: "Sulthan Bathery", lat: 12.8803, lng: 74.8925, icon: "🏞️", distance: "8.0 KMs" },
+            { name: "Someshwar Beach, Ullal", lat: 12.8165, lng: 74.8960, icon: "🏖️", distance: "13.7 KMs" }
+        ];
+
+        const placesOfWorship = [
+            { name: "Kudroli Temple", lat: 12.9091, lng: 74.8460, icon: "⛪", distance: "1.7 KMs" },
+            { name: "Mangala Devi Temple", lat: 12.8719, lng: 74.8645, icon: "⛪", distance: "3.2 KMs" },
+            { name: "Kadri Temple", lat: 12.9074, lng: 74.8491, icon: "⛪", distance: "1.3 KMs" },
+            { name: "St. Aloysius Chapel", lat: 12.9201, lng: 74.8443, icon: "⛪", distance: "1.8 KMs" }
+        ];
+    
+        // Store the marker layers
+        let currentMarkers = [];
+    
+        // Function to clear markers from the map
+        function clearMarkers() {
+            currentMarkers.forEach(marker => map.removeLayer(marker));
+            currentMarkers = [];
+        }
+    
+        // Function to show specific category (hospitals, transportation, education, shopping, interesting)
+        function showCategory(category) {
+            // Clear existing markers
+            clearMarkers();
+
+            if (category === 'hospitals') {
+                // Add hospital markers
+                hospitals.forEach(hospital => {
+                    const marker = L.marker([hospital.lat, hospital.lng]).addTo(map);
+                    marker.bindPopup(`<b>${hospital.icon} ${hospital.name}</b><br>Distance: ${hospital.distance}`);
+                    marker.on('mouseover', () => marker.openPopup());
+                    marker.on('mouseout', () => marker.closePopup());
+                    currentMarkers.push(marker);
+                });
+            } else if (category === 'transportation') {
+                // Add transportation markers
+                transportation.forEach(location => {
+                    const marker = L.marker([location.lat, location.lng]).addTo(map);
+                    marker.bindPopup(`<b>${location.icon} ${location.name}</b><br>Distance: ${location.distance}`);
+                    marker.on('mouseover', () => marker.openPopup());
+                    marker.on('mouseout', () => marker.closePopup());
+                    currentMarkers.push(marker);
+                });
+            } else if (category === 'education') {
+                // Add educational markers
+                education.forEach(location => {
+                    const marker = L.marker([location.lat, location.lng]).addTo(map);
+                    marker.bindPopup(`<b>${location.icon} ${location.name}</b><br>Distance: ${location.distance}`);
+                    marker.on('mouseover', () => marker.openPopup());
+                    marker.on('mouseout', () => marker.closePopup());
+                    currentMarkers.push(marker);
+                });
+            } else if (category === 'shopping') {
+                // Add shopping markers
+                shopping.forEach(location => {
+                    const marker = L.marker([location.lat, location.lng]).addTo(map);
+                    marker.bindPopup(`<b>${location.icon} ${location.name}</b><br>Distance: ${location.distance}`);
+                    marker.on('mouseover', () => marker.openPopup());
+                    marker.on('mouseout', () => marker.closePopup());
+                    currentMarkers.push(marker);
+                });
+            } else if (category === 'interesting') {
+                // Add interesting places markers
+                interestingPlaces.forEach(place => {
+                    const marker = L.marker([place.lat, place.lng]).addTo(map);
+                    marker.bindPopup(`<b>${place.icon} ${place.name}</b><br>Distance: ${place.distance}`);
+                    marker.on('mouseover', () => marker.openPopup());
+                    marker.on('mouseout', () => marker.closePopup());
+                    currentMarkers.push(marker);
+                });
+            } else if (category === 'placesOfWorship') {
+                // Add places of worship markers
+                placesOfWorship.forEach(place => {
+                    const marker = L.marker([place.lat, place.lng]).addTo(map);
+                    marker.bindPopup(`<b>${place.icon} ${place.name}</b><br>Distance: ${place.distance}`);
+                    marker.on('mouseover', () => marker.openPopup());
+                    marker.on('mouseout', () => marker.closePopup());
+                    currentMarkers.push(marker);
+                });
+            }
+        }
+    
+        // Initially show interesting places
+        showCategory('interesting');
+    </script>
+
+<script>
+    let currentImage = 1;
+  
+    function showImage(imageNumber) {
+      for (let i = 1; i <= 3; i++) {
+        document.getElementById('image' + i).style.display = 'none';
+      }
+      document.getElementById('image' + imageNumber).style.display = 'block';
+      updateActiveDot(imageNumber);
+    }
+  
+    function updateActiveDot(imageNumber) {
+      const dots = document.querySelectorAll('.dot');
+      dots.forEach((dot, index) => {
+        if (index + 1 === imageNumber) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    }
+  
+    showImage(1); // Initially show the first image
+  </script>
+    
 </body>
 
 </html>
