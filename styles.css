@@ -2066,7 +2066,6 @@ html {
     display: inline-block;
     position: relative;
     overflow: hidden;
-    cursor: crosshair;
   }
 
   .floor-image img {
@@ -2079,6 +2078,36 @@ html {
   .floor-image:hover img {
     cursor: zoom-out; /* Change cursor when zoomed in */
   }
+
+  .floor-text {
+    margin-top: 1.25rem;
+    margin-bottom: .625rem;
+    font-family: Nyghtserif, sans-serif;
+    line-height: 40px;
+  }
+
+  .floor-image-single {
+    border-radius: 45px;
+    width: 1000px;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .floor-border {
+    border: 1px solid #000;
+    border-radius: 45px;
+    margin-right: 80px;  
+    margin-bottom: 80px;
+    margin-left: 80px;
+    margin-top: 10px;
+  }
+
+  .button-container-floor {
+    margin-top: 60px;
+    margin-left: 90px;
+  }
+
  
   /* .floor-image img {
     display: block; 
@@ -2472,7 +2501,7 @@ html {
   }
   
   .content-section.works {
-    padding-bottom: 11.875rem;
+    padding-bottom: 5rem;
   }
   
   .content-section.last-no-inner {
@@ -2931,7 +2960,6 @@ html {
     justify-content: center;
     align-items: center;
     height: 62px;
-    padding-top: 8px;
     transition: transform .2s, opacity .2s;
     position: relative;
   }
@@ -2939,7 +2967,44 @@ html {
   .brand:hover {
     transform: scale(1.04);
   }
-  
+
+  .floor-section {
+    display: flex;
+    margin-top: -50px;
+    margin-bottom: -50px;
+  }
+
+  .floor-section-single {
+    display: flex;
+    justify-content: center;
+    margin-top: -50px;
+    margin-bottom: -70px;
+  }
+
+  .floor-item {
+      display: flex;
+      align-items: center; /* Aligns items vertically */
+      gap: 90px; /* Space between text and image */
+  }
+
+  .floor-item-2 {
+    display: flex;
+    align-items: center; /* Aligns items vertically */
+    gap: 90px; /* Space between text and image */
+    margin-left: auto;
+  }
+
+  .floor-image {
+      width: 800px; /* Adjust image width */
+      height: auto;
+  }
+
+  .floor-text {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+  }
+
   .navbar-bg {
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
@@ -3080,6 +3145,14 @@ html {
     margin-right: auto;
     position: relative;
   }
+
+  .heading-large-floor {
+    text-align: center;
+    width: 81%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
   
   .h2 {
     font-size: 42px;
@@ -3204,6 +3277,17 @@ html {
   }
   
   .heading-large-left.center {
+    max-width: 990px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .heading-large-left-img {
+    width: 100%;
+    max-width: 1108px;
+  }
+
+  .heading-large-left-img.center {
     max-width: 990px;
     margin-left: auto;
     margin-right: auto;

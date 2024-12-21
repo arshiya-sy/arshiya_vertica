@@ -159,12 +159,31 @@
             width: 280px; /* Consistent button width */
             height: 60px;
             text-align: center;
-            background-color: transparent; /* No background color */
+            background-color: transparent;
             text-align: left;
         }
 
 
         .proximity-buttons button:hover {
+            background-color: #000000;
+            color: rgb(255, 255, 255);
+        }
+
+        .toggle-button{
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+            cursor: pointer;
+            color: rgb(0, 0, 0);
+            border: 1px solid #000; 
+            border-radius: 30px;
+            background-color: transparent; 
+            text-align: left;
+            width: 110px;
+            transition: background-color 0.3s ease;
+        }
+
+        .toggle-button:hover {
             background-color: #000000;
             color: rgb(255, 255, 255);
         }
@@ -175,32 +194,48 @@
             margin-bottom: 10px;
         }
 
-        /* Basic styles for image container */
-        .image-container {
-            position: relative;
-            width: 300px;
-            height: 200px;
-        }
-
-        /* Styling for pagination dots */
-        .pagination-dots {
-            display: flex;
+        .day-night-wrapper {
+            /* background-image: url("https://d3e54v103j8qbb.cloudfront.net/img/background-image.svg"); */
+            background-position: 50%;
+            background-repeat: no-repeat;
+            background-size: cover;
             justify-content: center;
-            margin-top: 10px;
+            align-items: center;
+            width: 100%;
+            height: 120%;
+            margin-top: auto;
+            margin-bottom: auto;
+            position: absolute;
+            inset: 0;
         }
 
-        .dot {
-            width: 15px;
-            height: 15px;
-            margin: 0 5px;
-            border-radius: 50%;
-            background-color: #ccc;
-            cursor: pointer;
+        .day-night-wrapper.works {
+            height: 127%;
+            display: flex;
         }
 
-        .dot.active {
-            background-color: #333;
+        .day-night-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.9s ease-in-out;
         }
+
+        .night-view {
+            opacity: 0; /* Hidden by default */
+        }
+
+        .day-night-wrapper:hover .night-view {
+            opacity: 1; /* Reveal night view on hover */
+        }
+
+        .day-night-wrapper:hover .day-view {
+            opacity: 0; /* Hide day view on hover */
+        }
+
     </style>
     <script
         type="text/javascript">!function (o, c) { var n = c.documentElement, t = " w-mod-"; n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch") }(window, document);</script>
@@ -219,7 +254,7 @@
                 <div class="navbar-bg"></div>
                 <div class="navbar-on-click"></div>
                 <div class="navbar-wrapper w-container"><a href="/" aria-current="page"
-                        class="brand w-inline-block w--current"><img width="64" height="50"loading="lazy" alt=""
+                        class="brand w-inline-block w--current"><img width="97" height="65" loading="lazy" alt=""
                             src="vertica_logo.png" /></a>
                     <div data-w-id="b51aa038-8888-7ceb-49f4-bd4157410d07" class="menu-button w-nav-button">
                         <div class="w-icon-nav-menu"></div>
@@ -650,7 +685,7 @@
             <!-- <div class="lines-bg"></div> -->
             <div class="content-wrapper w-container">
                 <div class="narrow-container">
-                    <div class="heading-large-left center">
+                    <div class="heading-large-left-img center">
                         <div>
                             <h3 class="h3-big">Vertica Residences</h3>
                         </div>
@@ -665,113 +700,60 @@
                                         alt=""
                                         src="https://cdn.prod.website-files.com/66fef51bb2a32743f5bfff90/66fef51bb2a32743f5c00050_Blog_bg.jpg"
                                         loading="lazy" />
-                                    <div
+                                    <!-- <div
                                         style="background-image:url('verNight.jpg')"
                                         class="parallax-image works">
-                                        <div style="display:none;opacity:0" class="item-hover-overlay"></div>
-                                        <!-- <div style="opacity:0" class="blur-hover-overlay"></div> -->
-                                        <!-- <div style="-webkit-transform:translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(0, 0, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
-                                            class="button-hover">View <br />Work</div> -->
+                                    </div> -->
+                                    <div  class="day-night-wrapper works">
+                                        <img src="ver2.jpg" alt="Day View" class="day-night-image day-view">
+                                        <img src="verNight.jpg" alt="Night View" class="day-night-image night-view">
                                     </div>
                                 </a>
-                                <div class="preview-large-box">
-                                    <div class="preview-half-column"><a href="/location/california"
-                                            class="cabin-category-link">Floor Plans</a>
-                                        <div style="width: 600px;" class="preview-link-box"><a
-                                                class="preview-link">Spacious 4BHK apartments and duplexes.</a></div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="flex-floor">
-                        <div class="collection w-dyn-list">
-                            <div role="list" class="flex w-dyn-items-floor">
-                                <div role="listitem" class="w-dyn-item-floor">
-                                    <a class="floor-image w-inline-block">
-                                        <img src="floor1.jpg" alt="Description of floor1" />
-                                    </a>
-                                    <div class="intro-text-box-floor">
-                                        DUPLEX LOWER ISO
-                                    </div>
-                                </div>
-                                <div role="listitem" class="w-dyn-item-floor">
-                                    <a class="floor-image w-inline-block">
-                                        <img src="floor2.jpg" alt="Description of floor2" />
-                                    </a>
-                                    <div class="intro-text-box-floor">
-                                        DUPLEX LOWER TOP ANGLE
-                                    </div>
-                                </div>
-                                <div role="listitem" class="w-dyn-item-floor">
-                                    <a class="floor-image w-inline-block">
-                                        <img src="floor3.jpg" alt="Description of floor3" />
-                                    </a>
-                                    <div class="intro-text-box-floor">
-                                        DUPLEX UPPER ISO
-                                    </div>
-                                </div>
-                                <div role="listitem" class="w-dyn-item-floor">
-                                    <a class="floor-image w-inline-block">
-                                        <img src="floor4.jpg" alt="Description of floor4" />
-                                    </a>
-                                    <div class="intro-text-box-floor">
-                                        DUPLEX UPPER TOP ANGLE
-                                    </div>
-                                </div>
-                                <div role="listitem" class="w-dyn-item-floor">
-                                    <a class="floor-image w-inline-block">
-                                        <img src="floor5.jpg" alt="Description of floor5" />
-                                    </a>
-                                    <div class="intro-text-box-floor">
-                                        TYPICAL ISO
-                                    </div>
-                                </div>
-                                <div role="listitem" class="w-dyn-item-floor">
-                                    <a class="floor-image w-inline-block">
-                                        <img src="floor6.jpg" alt="Description of floor6" />
-                                    </a>
-                                    <div class="intro-text-box-floor">
-                                        TYPICAL TOP ANGLE
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>                               -->
-                    <div class="image-section">
-                        <div>
-                            <div id="image1" role="listitem" class="w-dyn-item-floor">
-                                <a class="floor-image w-inline-block">
-                                    <img src="floor1.jpg" alt="Description of floor1" />
-                                </a>
-                                <div class="intro-text-box-floor">
-                                    DUPLEX LOWER ISO
-                                </div>
-                            </div>
-                            <div id="image2" role="listitem" class="w-dyn-item-floor">
-                                <a class="floor-image w-inline-block">
-                                    <img src="floor3.jpg" alt="Description of floor3" />
-                                </a>
-                                <div class="intro-text-box-floor">
-                                    DUPLEX UPPER ISO
-                                </div>
-                            </div>
-                            <div id="image3" role="listitem" class="w-dyn-item-floor">
-                                <a class="floor-image w-inline-block">
-                                    <img src="floor5.jpg" alt="Description of floor5" />
-                                </a>
-                                <div class="intro-text-box-floor">
-                                    TYPICAL ISO
-                                </div>
-                            </div>
-                        </div>
-                      
-                        <div class="pagination-dots">
-                          <span class="dot" onclick="showImage(1)"></span>
-                          <span class="dot" onclick="showImage(2)"></span>
-                          <span class="dot" onclick="showImage(3)"></span>
-                        </div>
-                    </div>                   
+                    <!-- <div class="day-night-wrapper">
+                        <img src="ver2.jpg" alt="Day View" class="day-night-image day-view">
+                        <img src="verNight.jpg" alt="Night View" class="day-night-image night-view">
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="heading-large-floor">
+                <div>
+                    <div class="title">Floor Plans</div>
+                </div>
+                <h2 class="h2">Spacious 4BHK apartments and duplexes.</h2>
+            </div>
+            
+            <div class="button-container-floor">
+                <button onclick="showSection('duplex')" class="toggle-button">Duplex</button>
+                <button onclick="showSection('single')" class="toggle-button">Single</button>
+            </div>
+
+            <div id="duplex-section" class="floor-border">
+                <div class="floor-section">
+                    <div class="floor-item">
+                        <img src="lowerFloor.png" alt="Lower Floor" class="floor-image" />
+                        <h2 class="title">LOWER FLOOR</h2>
+                    </div>
+                </div>
+
+                <div style="margin-top: -140px;" class="floor-section">
+                    <div class="floor-item-2">
+                        <h2 class="title">UPPER FLOOR</h2>
+                        <img src="upperFloor.png" alt="Upper Floor" class="floor-image" />
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Single House Section -->
+            <div id="single-section" class="floor-border" style="display: none;">
+                <div class="floor-section-single">
+                    <div class="floor-item">
+                        <img src="oneFloor.png" alt="Single Floor" class="floor-image-single" />
+                    </div>
                 </div>
             </div>
         </div>
@@ -1145,30 +1127,24 @@
         showCategory('interesting');
     </script>
 
-<script>
-    let currentImage = 1;
-  
-    function showImage(imageNumber) {
-      for (let i = 1; i <= 3; i++) {
-        document.getElementById('image' + i).style.display = 'none';
-      }
-      document.getElementById('image' + imageNumber).style.display = 'block';
-      updateActiveDot(imageNumber);
-    }
-  
-    function updateActiveDot(imageNumber) {
-      const dots = document.querySelectorAll('.dot');
-      dots.forEach((dot, index) => {
-        if (index + 1 === imageNumber) {
-          dot.classList.add('active');
-        } else {
-          dot.classList.remove('active');
+    <script>
+        function showSection(sectionType) {
+            // Hide both sections
+            document.getElementById('duplex-section').style.display = 'none';
+            document.getElementById('single-section').style.display = 'none';
+        
+            // Show the selected section
+            if (sectionType === 'duplex') {
+                document.getElementById('duplex-section').style.display = 'block';
+            } else if (sectionType === 'single') {
+                document.getElementById('single-section').style.display = 'block';
+            }
         }
-      });
-    }
-  
-    showImage(1); // Initially show the first image
-  </script>
+
+        showSection('duplex');
+    </script>
+    
+
     
 </body>
 

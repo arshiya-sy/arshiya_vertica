@@ -1,5 +1,5 @@
 class ImageZoom {
-    constructor(selector, scale = 5) {
+    constructor(selector, scale = 3) {
       this.containers = document.querySelectorAll(selector);
       this.scale = scale; 
   
@@ -39,6 +39,6 @@ class ImageZoom {
 }
   
   document.addEventListener('DOMContentLoaded', () => {
-    new ImageZoom('.floor-image', 5);
+    new ImageZoom('.floor-image', 3);
   });
   
