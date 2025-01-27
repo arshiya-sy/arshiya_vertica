@@ -2106,6 +2106,8 @@ html {
   .button-container-floor {
     margin-top: 60px;
     margin-left: 90px;
+    display: flex;
+    gap: 20px; /* Space between buttons */
   }
 
  
@@ -2415,7 +2417,7 @@ html {
     margin-right: auto;
     position: relative;
     top: -3.125rem;
-    padding-bottom: 100px;
+    /* padding-bottom: 100px; */
   }
 
   .content-section-faq {
@@ -2801,7 +2803,7 @@ html {
   }
   
   .dark-on-scroll {
-    /* background-color: var(--bg-dark); */
+    background-color: white;
     opacity: 0;
     position: absolute;
     inset: 0%;
@@ -2827,7 +2829,7 @@ html {
     background-image: url("ver2.jpg");
     background-position: 50% 1%;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
   }
   
   .hero-image-scale.about-us {
@@ -2970,15 +2972,15 @@ html {
 
   .floor-section {
     display: flex;
-    margin-top: -50px;
-    margin-bottom: -50px;
+    /* margin-top: -50px; */
+    /* margin-bottom: -50px; */
   }
 
   .floor-section-single {
     display: flex;
     justify-content: center;
-    margin-top: -50px;
-    margin-bottom: -70px;
+    /* margin-top: -50px; */
+    /* margin-bottom: -70px; */
   }
 
   .floor-item {
