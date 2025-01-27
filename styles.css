@@ -2095,7 +2095,7 @@ html {
   }
 
   .floor-border {
-    border: 1px solid rgb(255, 213, 0);
+    border: 1px solid #000;
     border-radius: 45px;
     margin-right: 80px;  
     margin-bottom: 80px;
@@ -2219,7 +2219,7 @@ html {
   }
   
   body {
-    background-color: rgb(0, 0, 0);
+    background-color: var(--bg-body);
     color: var(--font);
     font-family: Satoshi Variable, sans-serif;
     font-size: 18px;
@@ -2394,10 +2394,8 @@ html {
   
   .content-section {
     z-index: 1;
-    background-color: #1a1a1a;
-    background-image: url('cubes.png');
-    background-repeat: repeat;
-    background-size: auto;
+    background-color: var(--white);
+    color: var(--font);
     width: 100%;
     max-width: 1290px;
     margin-left: auto;
@@ -2406,36 +2404,10 @@ html {
     position: relative;
     top: -3.125rem;
   }
-  
-  .gradient-text {
-    background: linear-gradient(95deg,#B8860B, #d5c14c, #986a24);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent; 
-  }
-  
-
-  .gradient-text-heading {
-    position: relative;
-    display: inline-block;
-    background: linear-gradient(95deg, #B8860B, #d5c14c, #986a24);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-    /* text-shadow: 
-      0 0 5px #000000, 
-      0 0 10px #FFD700, 
-      0 0 15px #FFD700, 
-      0 0 20px #FFD700, 
-      0 0 25px #FFD700, 
-      0 0 30px #FFD700, 
-      0 0 35px #FFD700; */
-  }
 
   .content-section-map {
     z-index: 1;
-    background-color: #1a1a1a;
-    background-image: url('cubes.png');
+    background-color: var(--white);
     color: var(--font);
     width: 100%;
     max-width: 1290px;
@@ -2448,8 +2420,7 @@ html {
 
   .content-section-faq {
     z-index: 1;
-    background-color: #1a1a1a;
-    background-image: url('cubes.png');
+    background-color: var(--white);
     color: var(--font);
     width: 100%;
     max-width: 1290px;
@@ -2457,7 +2428,7 @@ html {
     margin-right: auto;
     position: relative;
     top: -3.125rem;
-    padding-bottom: 30px;
+    padding-bottom: 100px;
   }
   
   .content-section.intro {
@@ -2466,7 +2437,6 @@ html {
     margin-top: 53.125rem;
     padding-top: 8.75rem;
     top: -3.125rem;
-    padding-bottom: 20px;
   }
   
   .content-section.no-padding {
@@ -2597,9 +2567,6 @@ html {
     padding-left: 1rem;
     padding-right: 1rem;
     position: relative;
-    /* background-color: #1a1a1a;
-    background-image: url('cubes.png'); */
-    padding-top: 15px;
   }
   
   .content-wrapper.hero {
@@ -2857,10 +2824,10 @@ html {
   }
   
   .hero-image-scale.home {
-    background-image: url("verNight.jpg");
+    background-image: url("ver2.jpg");
     background-position: 50% 1%;
     background-repeat: no-repeat;
-    /* background-size: contain; */
+    background-size: contain;
   }
   
   .hero-image-scale.about-us {
@@ -3041,7 +3008,7 @@ html {
   .navbar-bg {
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
-    background-color: #1a1a1a;
+    background-color: #ffffffe6;
     border-bottom-right-radius: 30px;
     border-bottom-left-radius: 30px;
     height: 62px;
@@ -3061,7 +3028,7 @@ html {
   .button-fill-icon {
     background-color: var(--bg-dark);
     box-shadow: none;
-    color: #050505;
+    color: #fff;
     text-align: center;
     border-style: none;
     border-bottom-right-radius: 30px;
@@ -3096,6 +3063,7 @@ html {
   }
   
   .navlink {
+    color: var(--font);
     height: 62px;
     margin-right: 1.95rem;
     padding-top: 1.25rem;
@@ -3227,13 +3195,6 @@ html {
   
   .intro-text-box {
     margin-top: 15px;
-  }
-
-  .intro-text-box p{
-    background: linear-gradient(95deg,#B8860B, #d5c14c, #986a24);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent; 
   }
   
   .full-overflow {
@@ -4490,7 +4451,7 @@ html {
   }
   
   .question {
-    /* color: var(--font); */
+    color: var(--font);
     font-family: Nyghtserif, sans-serif;
     font-size: 25px;
     font-weight: 500;
@@ -4510,7 +4471,8 @@ html {
   }
   
   .faq-accordion {
-    border: 1px solid rgb(255, 213, 0);
+    border: 1px solid var(--font);
+    background-color: var(--white);
     border-radius: 90px;
     flex: 1;
     width: 100%;
@@ -4553,7 +4515,7 @@ html {
   }
   
   .accordion-faq-trigger {
-    color: #40072c;
+    color: #074032;
     align-items: flex-start;
     width: 100%;
     padding-bottom: .313rem;
