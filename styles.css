@@ -2976,6 +2976,11 @@ html {
     /* margin-bottom: -50px; */
   }
 
+  .floor-section-2 {
+    display: flex;
+    margin-top: -140px;
+  }
+
   .floor-section-single {
     display: flex;
     justify-content: center;
@@ -3162,6 +3167,12 @@ html {
   }
   
   .title {
+    color: var(--font-gray);
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .floor-title {
     color: var(--font-gray);
     font-size: 20px;
     font-weight: 500;
@@ -9688,6 +9699,19 @@ html {
   
     .upside-donw-arrow {
       width: 23px;
+    }
+
+    .button-container-floor {
+      margin-top: 60px;
+      margin-left: 60px;
+      display: flex;
+      gap: 0px; 
+    }
+
+    .floor-title {
+      color: var(--font-gray);
+      font-size: 5px;
+      font-weight: 10;
     }
   
   }
